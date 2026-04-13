@@ -41,7 +41,15 @@ class _SebhaTabState extends State<SebhaTab> {
               children: [
                 Image.asset('assets/images/img_header.png', width: width * 0.7),
                 SizedBox(height: 36),
-                Image.asset('assets/images/sebha_title.png'),
+                Text(
+                  'سَبِّحِ اسْمَ رَبِّكَ الأعلى',
+                  style: TextStyle(
+                    fontFamily: 'janna',
+                    fontSize: 36,
+                    color: AppColors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 SizedBox(height: 16),
                 SebhaBody(),
               ],

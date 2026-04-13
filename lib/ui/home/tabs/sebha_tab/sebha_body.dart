@@ -26,26 +26,12 @@ class _SebhaBodyState extends State<SebhaBody> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Stack(
       alignment: Alignment.topCenter,
       children: [
         Positioned(
-          top: 23,
-          child: Image.asset('assets/images/sebha_head.png', width: 120),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 68),
-          child: AnimatedRotation(
-            turns: turns,
-            duration: Duration(milliseconds: 200),
-            child: GestureDetector(
-              onTap: onSebhaClicked,
-              child: Image.asset(
-                'assets/images/sebha_body.png',
-                width: width * 0.9,
-              ),
-            ),
-          ),
+          child: Image.asset('assets/images/sebha_head.png', width: 145),
         ),
         Column(
           spacing: 16,
@@ -71,6 +57,20 @@ class _SebhaBodyState extends State<SebhaBody> {
             ),
           ],
         ),
+        Padding(
+          padding: EdgeInsets.only(top: 68),
+          child: AnimatedRotation(
+            turns: turns,
+            duration: Duration(milliseconds: 200),
+            child: GestureDetector(
+              onTap: onSebhaClicked,
+              child: Image.asset(
+                'assets/images/sebha_body.png',
+                width: width * 0.9,
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -90,7 +90,7 @@ class _SebhaBodyState extends State<SebhaBody> {
         await audioPlayer.stop();
         audioPlayer.play(AssetSource('sounds/success.mp3'));
       } else {
-        HapticFeedback.selectionClick();
+        HapticFeedback.vibrate();
         await audioPlayer.stop();
         audioPlayer.play(AssetSource('sounds/click.mp3'));
       }
