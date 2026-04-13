@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:islami_c18_dokki/core/cache_helper.dart';
 import 'package:islami_c18_dokki/ui/home/home_view.dart';
+import 'package:islami_c18_dokki/ui/intro/on_boarding_screen.dart';
 
 class IntroScreen extends StatefulWidget {
   static const String routeName = "intro";
@@ -11,14 +13,23 @@ class IntroScreen extends StatefulWidget {
   State<IntroScreen> createState() => _IntroScreenState();
 }
 
-
 class _IntroScreenState extends State<IntroScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), (){
+    _navigateToNextScreen();
+  }
+
+  void _navigateToNextScreen() async {
+    await Future.delayed(Duration(seconds: 3));
+    bool isFirstTime =
+        CacheHelper.getBool(key: 'isOnBoardingFinished') ?? false;
+
+    if (isFirstTime == true) {
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
-    });
+    } else {
+      Navigator.pushReplacementNamed(context, OnBoardingScreen.routeName);
+    }
   }
 
   @override
