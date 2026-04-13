@@ -28,14 +28,14 @@ class SuraItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(sura.nameEn, style: TextStyles.titleMediumSmall()),
+                Text(sura.nameEn, style: TextStyles.titleSmallStyle()),
                 SizedBox(height: 8),
-                Text(sura.versesNumber, style: TextStyles.titleMediumSmall()),
+                Text(sura.versesNumber, style: TextStyles.titleSmallStyle()),
               ],
             ),
           ),
           SizedBox(width: 16),
-          Text(sura.nameAr, style: TextStyles.titleMediumSmall()),
+          Text(sura.nameAr, style: TextStyles.titleSmallStyle()),
         ],
       ),
     );

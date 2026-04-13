@@ -98,7 +98,7 @@ abstract class TextStyles {
     );
   }
 
-  static TextStyle titleMediumSmall({
+  static TextStyle titleSmallStyle({
     Color color = AppColors.white,
     double fontSize = 18,
   }) {
