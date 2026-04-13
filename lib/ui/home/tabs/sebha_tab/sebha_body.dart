@@ -85,11 +85,11 @@ class _SebhaBodyState extends State<SebhaBody> {
       if (counter == 33) {
         counter = 0;
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        HapticFeedback.heavyImpact();
+        HapticFeedback.vibrate();
         await audioPlayer.stop();
         audioPlayer.play(AssetSource('sounds/success.mp3'));
       } else {
-        HapticFeedback.vibrate();
+        HapticFeedback.selectionClick();
         await audioPlayer.stop();
         audioPlayer.play(AssetSource('sounds/click.mp3'));
       }
